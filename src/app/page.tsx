@@ -1,101 +1,148 @@
+import Link from "next/link";
 import Image from "next/image";
+import Checklist from "../../public/output-onlinepngtools-removebg-preview.png";
+import dataDashboard from "../../public/Data-Dashboard.png";
+import TestimonialCard from "./components/TestimonialCard";
+import {
+  faChartLine,
+  faUsersBetweenLines,
+  faBullseye,
+  faHandshakeSimple,
+} from "@fortawesome/free-solid-svg-icons";
+import groups from "../../public/groups copy.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-export default function Home() {
+export default async function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <header className="bg-[#124e78] dark:bg-light-accent">
+        <div className=" flex items-center justify-around py-32 md:py-40 flex-col sm:flex-row w-full">
+          <div className="flex flex-col text-center text-light-shade-white drop-shadow-lg">
+            <h1 className="text-3xl sm:text-5xl pb-6 drop-shadow-[#000000]">
+              Akontability
+            </h1>
+            <p className="text-xl sm:text-2xl">
+              Where you keep yourself and your friends accountable
+            </p>
+          </div>
+          <div className="pt-6 sm:pt-0 text-center flex">
+            <Link
+              href="/register"
+              className="btn-main-blue w-max mr-4 text-xl shadow-[#000000] "
+            >
+              Sign Up
+            </Link>
+            <Link
+              href="/login"
+              className="btn-light-accent w-max text-xl shadow-[#000000] dark:bg-dark-accent"
+            >
+              Login
+            </Link>
+          </div>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+      </header>
+      <section className="my-20 animate-fadeIn mx-auto flex flex-wrap">
+        <div className="sm:basis-1/2 basis-full">
+          <div className="w-10/12 sm:max-w-72 mx-auto">
+            <Image
+              src={Checklist}
+              alt="Checklist Image"
+              className="drop-shadow-2xl"
+            />
+          </div>
+          <h2 className="text-4xl text-center mt-10 mb-5 text-default-blue dark:text-light-accent">
+            <FontAwesomeIcon icon={faBullseye} size="sm" className="mr-2" />
+            Tracking you goals
+          </h2>
+          <p className="text-xl text-wrap text-dark-black p-5 rounded-3xl dark:text-light-shade-white">
+            Keep track of your goals and check them off when you have completed
+            them.
+          </p>
+        </div>
+        <div className="sm:basis-1/2 basis-full">
+          <div className="w-fit sm:max-w-72 mx-auto">
+            <Image
+              src={groups}
+              alt="Join groups dashboard"
+              className="drop-shadow-2xl"
+            />
+          </div>
+          <h2 className="text-4xl text-center mt-10 mb-5 text-default-blue dark:text-light-accent">
+            <FontAwesomeIcon
+              icon={faUsersBetweenLines}
+              size="sm"
+              className="mr-2"
+            />
+            Joining Groups
+          </h2>
+          <p className="text-xl text-wrap text-dark-black p-5 rounded-3xl dark:text-light-shade-white">
+            Join groups and see who is completing the most goals they set for
+            themselves, and who is on top of the group.
+          </p>
+        </div>
+        <div className="basis-full">
+          <div className=" w-10/12 sm:max-w-[75%] mx-auto">
+            <Image src={dataDashboard} alt="Data Dashboard" />
+          </div>
+          <h2 className="text-4xl text-center mt-10 mb-5 text-default-blue dark:text-light-accent">
+            <FontAwesomeIcon icon={faChartLine} size="sm" className="mr-2" />
+            Tracking your progress
+          </h2>
+          <p className="text-xl text-center text-wrap text-dark-black p-5 rounded-3xl dark:text-light-shade-white">
+            Keep track of your progess with completing your goals, whether it is
+            a weekly, monthly or yearly report.
+          </p>
+        </div>
+      </section>
+      <section className="my-20">
+        <h2 className="text-4xl text-center mb-14 text-dark-black">
+          User Reviews
+        </h2>
+        <div className="relative flex justify-evenly flex-wrap">
+          <TestimonialCard
+            testamonial={{
+              userName: "Abdisha Musa",
+              rating: 4,
+              reviewText:
+                "Using this app has changed my productivity so much. I have seen an icnrease in my productivity due to the fact that I can see everything I have to do for the day in one place.",
+            }}
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+          <TestimonialCard
+            className={"lg:scale-125"}
+            testamonial={{
+              userName: "Abdisha Musa",
+              rating: 4,
+              reviewText:
+                "Using this app has changed my productivity so much. I have seen an icnrease in my productivity due to the fact that I can see everything I have to do for the day in one place.",
+            }}
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
+          <TestimonialCard
+            testamonial={{
+              userName: "Abdisha Musa",
+              rating: 5,
+              reviewText:
+                "Using this app has changed my productivity so much. I have seen an icnrease in my productivity due to the fact that I can see everything I have to do for the day in one place.",
+            }}
           />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        </div>
+      </section>
+      <section className="">
+        <h2 className="text-4xl text-center mb-14 text-dark-black dark:text-light-accent">
+          <FontAwesomeIcon icon={faHandshakeSimple} className="mr-2" />
+          Join to see results
+        </h2>
+        <div className="flex flex-col flex-wrap w-full items-center justify-center">
+          <p className="py-2 px-4 max-w-lg text-center text-lg justify-self-center dark:text-light-shade-white">
+            Whether you want to become more productive, want a little
+            competition between your friends, or both, join our platform to take
+            yourself to the next level and complete more of your daily, weekly,
+            or montly goals.
+          </p>
+          <Link href="/register" className="btn bg-light-accent mb-10">
+            Join Now
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }
